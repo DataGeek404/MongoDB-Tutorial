@@ -1,4 +1,4 @@
-Got it! Here's a **detailed guide on MongoDB and Object-Oriented Programming (OOP)** — how MongoDB aligns with OOP principles, and how to structure your MongoDB data and operations in an object-oriented way using JavaScript (or any other OOP-supporting language).
+ **Guide on MongoDB and Object-Oriented Programming (OOP)** — how MongoDB aligns with OOP principles, and how to structure your MongoDB data and operations in an object-oriented way using JavaScript (or any other OOP-supporting language).
 
 ---
 
