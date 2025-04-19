@@ -335,4 +335,140 @@ db.students.find({ gpa: { $gt: 3.5 } });
 - [Mongoose Docs](https://mongoosejs.com/)
 
 ---
+**platform-specific guide** with official download links and clear steps to install **MongoDB** on **Linux, macOS (MacBook), and Windows**. I'll also include a quick verification step to ensure it's working properly.
+
+---
+
+## 🐧 **1. Installing MongoDB on Linux**
+
+### ✅ Ubuntu / Debian-based Distros
+
+### Step-by-step:
+
+1. **Import the public key**:
+   ```bash
+   curl -fsSL https://pgp.mongodb.com/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+   ```
+
+2. **Add MongoDB repository**:
+   ```bash
+   echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/ubuntu $(lsb_release -cs)/mongodb-org/7.0 multiverse" | \
+   sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+   ```
+
+3. **Update and install MongoDB**:
+   ```bash
+   sudo apt update
+   sudo apt install -y mongodb-org
+   ```
+
+4. **Start and enable MongoDB**:
+   ```bash
+   sudo systemctl start mongod
+   sudo systemctl enable mongod
+   ```
+
+5. **Check status**:
+   ```bash
+   sudo systemctl status mongod
+   ```
+
+🔗 Official Docs: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
+---
+
+## 🍏 **2. Installing MongoDB on macOS (MacBook)**
+
+### Option 1: Homebrew (recommended)
+
+### Step-by-step:
+
+1. **Install Homebrew** (if not already installed):
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   ```
+
+2. **Tap MongoDB formula**:
+   ```bash
+   brew tap mongodb/brew
+   ```
+
+3. **Install MongoDB**:
+   ```bash
+   brew install mongodb-community@7.0
+   ```
+
+4. **Start MongoDB**:
+   ```bash
+   brew services start mongodb/brew/mongodb-community
+   ```
+
+5. **Verify it's running**:
+   ```bash
+   mongosh
+   ```
+
+🔗 Official Docs: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-os-x/
+
+---
+
+## 🪟 **3. Installing MongoDB on Windows**
+
+### Step-by-step:
+
+1. **Go to the official download page**:
+   🔗 [MongoDB Community Server Download (Windows)](https://www.mongodb.com/try/download/community)
+
+2. Select:
+   - Version: MongoDB 7.0+
+   - Platform: Windows
+   - Package: `.msi` (Windows Installer)
+
+3. **Run the installer**:
+   - Choose "Complete" setup
+   - Check "Install MongoDB as a Service"
+
+4. **Install MongoDB Shell (mongosh)** during installation
+
+5. After installation:
+   - Open **Command Prompt** or **PowerShell**
+   - Run:
+     ```bash
+     mongosh
+     ```
+
+6. If you see the MongoDB prompt (`>`) — you're good to go!
+
+🔗 Official Docs: https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-windows/
+
+---
+
+## ✅ After Installation (All OS)
+
+### Test MongoDB:
+```bash
+mongosh
+```
+
+You should see something like:
+```
+Current Mongosh Log ID: 6616195fc9b6eb551adf1234
+Connecting to: mongodb://127.0.0.1:27017
+```
+
+Then you can run:
+```js
+use test
+db.test.insertOne({name: "Jay"})
+db.test.find()
+```
+
+---
+
+## 💡 Pro Tip: Use MongoDB Atlas if you prefer not to install locally
+Create a free cloud database at:  
+🔗 https://www.mongodb.com/cloud/atlas/register
+
 
